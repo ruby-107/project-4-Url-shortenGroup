@@ -15,10 +15,6 @@ redisClient.auth("v2IVQrUzpKMuTpLwALcZiNye9uSo3tSb", function (err) {
 });
 
 
-
-//const redisClient = redis.createClient('redis-18380.c263.us-east-1-2.ec2.cloud.redislabs.com',password:'v2IVQrUzpKMuTpLwALcZiNye9uSo3tSb');
-
-
 redisClient.on('connect',() => {
     console.log('connected to redis successfully!');
 })
@@ -32,7 +28,7 @@ const GET_ASYNC = promisify(redisClient.GET).bind(redisClient);
  const isVaildUrl =  /http(s?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/
 
 
-//////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -70,9 +66,6 @@ const createUrl = async (req, res) => {
         }
     }
     else {
-   // /http(s?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/
-     // if (!(/\b(https?|ftp|file):\/\/[\-A-Za-z0-9+&@#\/%?=_|!:,.;]*[\-A-Za-z0-9+&@#\/%=_|]/.test(longUrl))) {
-     
       return  res.status(400).json({ status: false, msg: "invalid longurl" });
         }
 
